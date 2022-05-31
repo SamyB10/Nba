@@ -6,7 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
+ struct CalendrierMatch:Decodable {
+    let AwayTeam: String
+    let HomeTeam: String
+    let Status: String
+    let AwayTeamScore: Int
+    let HomeTeamScore: Int
+}
 
 

@@ -147,7 +147,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="DomLabel" destination="Qfl-Rr-5DS" id="PEA-6N-YUh"/>
+                                            <outlet property="DomLabel" destination="Qfl-Rr-5DS" id="yeV-vm-Gtb"/>
                                             <outlet property="ExtLabel" destination="FNG-ud-1W6" id="13r-VR-2jh"/>
                                             <outlet property="LogoDom" destination="oKC-hX-0iP" id="5z4-z0-wuB"/>
                                             <outlet property="LogoExt" destination="3ng-UG-65e" id="jlT-I9-I8Q"/>
