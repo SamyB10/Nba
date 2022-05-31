@@ -40,6 +40,7 @@ class CalendrierViewController: UIViewController, UITableViewDelegate, UITableVi
        
         CalendrierCell.DomLabel.text = calendrier[indexPath.row].AwayTeam
         CalendrierCell.ExtLabel.text = calendrier[indexPath.row].HomeTeam
+        CalendrierCell.StatusLabel.text = calendrier[indexPath.row].Status
         CalendrierCell.ScoreDom.text = "\(calendrier[indexPath.row].AwayTeamScore)"
         CalendrierCell.ScoreExt.text = "\(calendrier[indexPath.row].HomeTeamScore)"
         CalendrierCell.LogoDom.image = UIImage(named: calendrier[indexPath.row].AwayTeam)

@@ -19,6 +19,7 @@ class CalendrierTableViewCell: UITableViewCell {
     @IBOutlet weak var ExtLabel: UILabel!
     @IBOutlet weak var ScoreDom: UILabel!
     @IBOutlet weak var ScoreExt: UILabel!
+    @IBOutlet weak var StatusLabel: UILabel!
     @IBOutlet weak var viewCalendrier: UIView!
     
     override func awakeFromNib() {
