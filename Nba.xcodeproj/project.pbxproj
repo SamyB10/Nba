@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D32EFC428476E390012B3FF /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D32EFC328476E390012B3FF /* DateHelpers.swift */; };
+		0D32EFC92848DDBC0012B3FF /* ClassementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D32EFC82848DDBC0012B3FF /* ClassementViewController.swift */; };
 		0D3C3B70283696AA00395FD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B6F283696AA00395FD7 /* AppDelegate.swift */; };
 		0D3C3B72283696AA00395FD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B71283696AA00395FD7 /* SceneDelegate.swift */; };
 		0D3C3B74283696AA00395FD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B73283696AA00395FD7 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D32EFC328476E390012B3FF /* DateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		0D32EFC82848DDBC0012B3FF /* ClassementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassementViewController.swift; sourceTree = "<group>"; };
 		0D3C3B6C283696AA00395FD7 /* Nba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3C3B6F283696AA00395FD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D3C3B71283696AA00395FD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D32EFC72848DD360012B3FF /* ControllerClassement */ = {
+			isa = PBXGroup;
+			children = (
+				0D32EFC82848DDBC0012B3FF /* ClassementViewController.swift */,
+			);
+			path = ControllerClassement;
+			sourceTree = "<group>";
+		};
 		0D3C3B63283696AA00395FD7 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +79,11 @@
 				0D3C3B6F283696AA00395FD7 /* AppDelegate.swift */,
 				0D3C3B71283696AA00395FD7 /* SceneDelegate.swift */,
 				0D3C3B7D283696AD00395FD7 /* Info.plist */,
-				0DACFBF8283C2BBD00957F34 /* ViewModel */,
 				0D3C3B832836970E00395FD7 /* Model */,
 				0D3C3B842836972200395FD7 /* View */,
-				0D3C3B852836974200395FD7 /* Controller */,
+				0D3C3B852836974200395FD7 /* ControllerCalendrier */,
+				0D32EFC72848DD360012B3FF /* ControllerClassement */,
+				0DACFBF8283C2BBD00957F34 /* ViewModel */,
 				0DACFBF5283C2A8300957F34 /* Helpers */,
 			);
 			path = Nba;
@@ -94,19 +107,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0D3C3B852836974200395FD7 /* Controller */ = {
+		0D3C3B852836974200395FD7 /* ControllerCalendrier */ = {
 			isa = PBXGroup;
 			children = (
 				0D3C3B73283696AA00395FD7 /* ViewController.swift */,
 				0D3C3B8628377CFA00395FD7 /* CalendrierViewController.swift */,
 			);
-			path = Controller;
+			path = ControllerCalendrier;
 			sourceTree = "<group>";
 		};
 		0DACFBF5283C2A8300957F34 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				0DACFBF6283C2AB000957F34 /* Constants.swift */,
+				0D32EFC328476E390012B3FF /* DateHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -195,7 +209,9 @@
 				0D3C3B70283696AA00395FD7 /* AppDelegate.swift in Sources */,
 				0D3C3B72283696AA00395FD7 /* SceneDelegate.swift in Sources */,
 				0D3C3B8D283BB63800395FD7 /* CalendrierTableViewCell.swift in Sources */,
+				0D32EFC428476E390012B3FF /* DateHelpers.swift in Sources */,
 				0DACFBFA283C2BE400957F34 /* viewModel.swift in Sources */,
+				0D32EFC92848DDBC0012B3FF /* ClassementViewController.swift in Sources */,
 				0DACFBF7283C2AB000957F34 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

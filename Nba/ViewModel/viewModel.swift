@@ -11,8 +11,21 @@ import Foundation
     let AwayTeam: String
     let HomeTeam: String
     let Status: String
-    let AwayTeamScore: Int
-    let HomeTeamScore: Int
+    let AwayTeamScore: Int?
+    let HomeTeamScore: Int?
+    let DateTime: String
 }
+
+
+class Calendrier: Decodable, ObservableObject {
+    var games:[CalendrierMatch]
+    
+    init() {
+        self.games = [CalendrierMatch]()
+    }
+}
+
+
+
 
 
