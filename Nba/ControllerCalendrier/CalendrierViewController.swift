@@ -23,7 +23,6 @@ class CalendrierViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         downloadJSON(date: DateCategory.today)
         self.tableView.reloadData()

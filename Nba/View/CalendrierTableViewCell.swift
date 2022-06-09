@@ -31,7 +31,7 @@ class CalendrierTableViewCell: UITableViewCell {
     }
 
     // Custom rectangle des rencontre
-    private func addShadow() {
+        func addShadow() {
         viewCalendrier.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6).cgColor
         viewCalendrier.layer.shadowRadius = 5
         viewCalendrier.layer.shadowOffset = CGSize( width: 2.0, height: 2.0)
