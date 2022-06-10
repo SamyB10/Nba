@@ -51,7 +51,7 @@
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="QFT-2j-O3f">
-                                <rect key="frame" x="10" y="175" width="394" height="32"/>
+                                <rect key="frame" x="17" y="175" width="394" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="394" id="Kc6-Pd-jYo"/>
                                 </constraints>
@@ -82,6 +82,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PlC-Lt-1pa">
                                 <rect key="frame" x="0.0" y="271" width="428" height="562"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="562" id="aa8-Z5-wZt"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClassementCell" rowHeight="70" id="hDU-st-cye" userLabel="ClassementCell" customClass="ClassementTableViewCell" customModule="Nba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="70"/>
@@ -165,28 +168,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-Ve-mRH">
-                                <rect key="frame" x="138" y="226" width="157" height="21"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P2-y8-mcc">
+                                <rect key="frame" x="120" y="214" width="150" height="49"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2eB-GP-dMD"/>
-                                    <constraint firstAttribute="width" constant="157" id="EeH-5S-ZZe"/>
+                                    <constraint firstAttribute="height" constant="49" id="Asg-Mt-3Jb"/>
+                                    <constraint firstAttribute="width" constant="150" id="zqD-rY-MpV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZC6-b1-7vJ" id="7ha-99-kjw"/>
+                                    <outlet property="delegate" destination="ZC6-b1-7vJ" id="vsM-8s-PD0"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsb-NX-5Rm">
+                                <rect key="frame" x="261" y="223" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="EIm-0o-nBr"/>
+                                    <constraint firstAttribute="height" constant="31" id="N6M-He-sWH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="OK">
+                                    <color key="baseForegroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="valider:" destination="ZC6-b1-7vJ" eventType="touchUpInside" id="aXB-ei-nLl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tcg-gl-Pbw"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZuU-JR-dap" firstAttribute="top" secondItem="QFT-2j-O3f" secondAttribute="bottom" constant="20" id="34y-W0-xm0"/>
                             <constraint firstItem="f7L-MA-Epw" firstAttribute="top" secondItem="tcg-gl-Pbw" secondAttribute="top" constant="10" id="52p-1Y-bgy"/>
+                            <constraint firstItem="Tsb-NX-5Rm" firstAttribute="top" secondItem="QFT-2j-O3f" secondAttribute="bottom" constant="17" id="7J0-6A-GkC"/>
                             <constraint firstItem="PlC-Lt-1pa" firstAttribute="leading" secondItem="tcg-gl-Pbw" secondAttribute="leading" id="916-VP-328"/>
-                            <constraint firstItem="PlC-Lt-1pa" firstAttribute="top" secondItem="b0O-Ve-mRH" secondAttribute="bottom" constant="24" id="DU6-0i-2Xx"/>
+                            <constraint firstItem="Tsb-NX-5Rm" firstAttribute="leading" secondItem="x4x-oF-fRK" secondAttribute="trailing" constant="160" id="FJa-II-rsT"/>
                             <constraint firstItem="QFT-2j-O3f" firstAttribute="top" secondItem="f7L-MA-Epw" secondAttribute="bottom" constant="21" id="Mi1-Dg-2ye"/>
                             <constraint firstItem="tcg-gl-Pbw" firstAttribute="trailing" secondItem="ZuU-JR-dap" secondAttribute="trailing" constant="10" id="QMJ-BD-v2w"/>
                             <constraint firstAttribute="trailing" secondItem="f7L-MA-Epw" secondAttribute="trailing" constant="10" id="Re1-aQ-ogr"/>
-                            <constraint firstItem="b0O-Ve-mRH" firstAttribute="top" secondItem="QFT-2j-O3f" secondAttribute="bottom" constant="20" id="SoR-fo-Ltb"/>
                             <constraint firstItem="tcg-gl-Pbw" firstAttribute="trailing" secondItem="PlC-Lt-1pa" secondAttribute="trailing" id="Teh-Na-4Fa"/>
                             <constraint firstItem="x4x-oF-fRK" firstAttribute="top" secondItem="QFT-2j-O3f" secondAttribute="bottom" constant="20" id="V5N-Z5-38y"/>
                             <constraint firstItem="tcg-gl-Pbw" firstAttribute="bottom" secondItem="PlC-Lt-1pa" secondAttribute="bottom" constant="10" id="Vay-SP-CCy"/>
@@ -194,14 +212,18 @@
                             <constraint firstItem="O1L-wg-61G" firstAttribute="top" secondItem="tcg-gl-Pbw" secondAttribute="top" constant="10" id="eQ4-oJ-qJG"/>
                             <constraint firstItem="QFT-2j-O3f" firstAttribute="top" secondItem="f7L-MA-Epw" secondAttribute="bottom" constant="21" id="gAT-S9-mvQ"/>
                             <constraint firstItem="O1L-wg-61G" firstAttribute="leading" secondItem="tcg-gl-Pbw" secondAttribute="leading" constant="10" id="kcZ-me-Nui"/>
-                            <constraint firstItem="QFT-2j-O3f" firstAttribute="leading" secondItem="tcg-gl-Pbw" secondAttribute="leading" constant="10" id="x7I-uC-UKi"/>
-                            <constraint firstItem="b0O-Ve-mRH" firstAttribute="leading" secondItem="x4x-oF-fRK" secondAttribute="trailing" constant="37" id="yJg-8f-Giu"/>
+                            <constraint firstItem="6P2-y8-mcc" firstAttribute="top" secondItem="QFT-2j-O3f" secondAttribute="bottom" constant="8" id="nHZ-GW-bqZ"/>
+                            <constraint firstItem="6P2-y8-mcc" firstAttribute="leading" secondItem="tcg-gl-Pbw" secondAttribute="leading" constant="120" id="wxR-eW-P1s"/>
+                            <constraint firstItem="QFT-2j-O3f" firstAttribute="leading" secondItem="tcg-gl-Pbw" secondAttribute="leading" constant="17" id="x7I-uC-UKi"/>
+                            <constraint firstItem="PlC-Lt-1pa" firstAttribute="top" secondItem="6P2-y8-mcc" secondAttribute="bottom" constant="8" id="yUJ-sB-3pw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Classement" image="list.dash" catalog="system" id="2dI-Dn-i3M"/>
                     <connections>
+                        <outlet property="Saison" destination="6P2-y8-mcc" id="Tka-FR-e04"/>
                         <outlet property="segmentedControl" destination="QFT-2j-O3f" id="Zrn-g2-fDH"/>
                         <outlet property="tableView" destination="PlC-Lt-1pa" id="pd6-lv-adO"/>
+                        <outlet property="validerAnne" destination="Tsb-NX-5Rm" id="ucJ-UF-Ufi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJv-dm-9m1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

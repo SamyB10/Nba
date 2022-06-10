@@ -9,8 +9,9 @@ import Foundation
 
 struct ClassementConference: Decodable {
     
-    var teams:[Classement]
+
     
+    var teams:[Classement]
     var east:[Classement]
     var weast:[Classement]
     
@@ -57,4 +58,5 @@ struct Classement: Decodable, Identifiable {
     var ConferenceRank:Int
     
 }
+
 

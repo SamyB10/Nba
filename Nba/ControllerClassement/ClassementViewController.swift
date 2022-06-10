@@ -12,19 +12,23 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
    
    @Published var conference: ClassementConference?
     var classement = [Classement]()
-
+    var annee = Constants.saison[0]
     
+    
+    @IBOutlet weak var validerAnne: UIButton!
+    @IBOutlet weak var Saison: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         downloadsJSON()
-       
     }
     
     @IBAction func SelectConf(_ sender: UISegmentedControl) -> () {
@@ -32,10 +36,8 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
 }
     
     
+    //MARK: Table VIew
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-       
-    
        switch segmentedControl.selectedSegmentIndex {
         case 0:
            return conference!.east.count
@@ -51,7 +53,6 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
         let ClassementCellIdentifiant = "ClassementCell"
         let ClassementCell = tableView.dequeueReusableCell(withIdentifier: ClassementCellIdentifiant, for: indexPath) as! ClassementTableViewCell
         
@@ -70,16 +71,14 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             break
         }
-        
-        
         return ClassementCell
     }
     
     
     //MARK: API Classement
     func downloadsJSON() {
-    
-        guard let url = URL(string: "https://api.sportsdata.io/v3/nba/scores/json/Standings/2021?key=\(Constants.apiKey)")
+        
+        guard let url = URL(string: "https://api.sportsdata.io/v3/nba/scores/json/Standings/\(annee)?key=\(Constants.apiKey)")
         else {
         fatalError("BAD URL")
     }
@@ -106,15 +105,50 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
                 newConference.Conference()
                 self.conference = newConference
                 self.tableView.reloadData()
-                
             }
         }
-               
         } catch {
             fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
         }
     }.resume()
   }
+    
+    
+   
+    //MARK: Changer Saison
+    @IBAction func valider(_ sender: Any) {
+        ChoixAnnee()
+    }
+    
+    func ChoixAnnee() {
+        let years = annee
+    
+        if years == "2021" {
+            downloadsJSON()
+        } else if years == "2022" {
+            downloadsJSON()
+        }
+    }
+}
+
+    //MARK: PICKER VIEW SAISONS
+ extension ClassementViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+         func numberOfComponents(in pickerView: UIPickerView) -> Int {
+             1
+         }
+         
+         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+             return Constants.saison.count
+         }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+             return Constants.saison[row]
+     }
+        
+     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+         annee = Constants.saison[row]
+        
+    }
 }
 
 
@@ -124,36 +158,4 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
 
 
 
-
-
-
-
-
-
-
-
-/*// PICKER VIEW SAISONS
- extension ClassementViewController: UIPickerViewDataSource {
-         func numberOfComponents(in pickerView: UIPickerView) -> Int {
-             1
-         }
-         
-         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-             return saisons.count
-         }
-     }
-
-     
- extension ClassementViewController: UIPickerViewDelegate {
-         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-         return saisons[row]
-     }
- }
-
- extension ClassementViewController: UITextFieldDelegate {
-         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder()
-         return true
-     }
- */
 
