@@ -19,7 +19,7 @@ class ClassementTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadows()
-
+        
     }
 
     func addShadows() {
@@ -30,5 +30,4 @@ class ClassementTableViewCell: UITableViewCell {
     func NumeroClassement(Numero: Int) {
         ClassementLabel.text = "\(Numero)"
     }
-    
 }

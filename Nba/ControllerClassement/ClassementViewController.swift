@@ -13,35 +13,39 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
    @Published var conference: ClassementConference?
     var classement = [Classement]()
     var annee = Constants.saison[0]
+    var colorBlue = UIColor(red: 39/255, green: 65/255, blue: 133/255, alpha: 0.7)
+    var colorRed = UIColor(red: 184/255, green: 43/255, blue: 53/255, alpha: 0.7)
     
-    
+    @IBOutlet weak var LegendeRed: UILabel!
+    @IBOutlet weak var LegendeBlue: UILabel!
     @IBOutlet weak var validerAnne: UIButton!
     @IBOutlet weak var Saison: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        downloadsJSON()
+        LegendeBlue.backgroundColor = colorBlue
+        LegendeRed.backgroundColor = colorRed
+        self.downloadsJSON()
+        
     }
     
+    
+    
     @IBAction func SelectConf(_ sender: UISegmentedControl) -> () {
-            tableView.reloadData()
+        tableView.reloadData()
 }
     
     
-    //MARK: Table VIew
+//MARK: Table VIew
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        switch segmentedControl.selectedSegmentIndex {
         case 0:
            return conference!.east.count
-           
         case 1:
            return conference!.weast.count
            
@@ -60,10 +64,26 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             ClassementCell.NumeroClassement(Numero: indexPath.row + 1)
+            if indexPath.row <= 5 {
+                ClassementCell.ClassementLabel.backgroundColor = colorBlue
+            } else if indexPath.row <= 9 {
+                    ClassementCell.ClassementLabel.backgroundColor = colorRed
+            } else {
+                ClassementCell.ClassementLabel.backgroundColor = .white
+            }
+            
             ClassementCell.LogoImageView.image = UIImage(named: (conference?.east[indexPath.row].Key)!)
             ClassementCell.EquipeLabel.text = "\(conference!.east[indexPath.row].City) \(conference!.east[indexPath.row].Name)"
             ClassementCell.StatsLabel.text = "\(conference!.east[indexPath.row].Wins) - \(conference!.east[indexPath.row].Losses)"
         case 1:
+            ClassementCell.NumeroClassement(Numero: indexPath.row + 1)
+            if indexPath.row <= 5 {
+                ClassementCell.ClassementLabel.backgroundColor = colorBlue
+            } else if indexPath.row <= 9 {
+                    ClassementCell.ClassementLabel.backgroundColor = colorRed
+            } else {
+                ClassementCell.ClassementLabel.backgroundColor = .white
+            }
             ClassementCell.NumeroClassement(Numero: indexPath.row + 1)
             ClassementCell.LogoImageView.image = UIImage(named: (conference?.weast[indexPath.row].Key)!)
             ClassementCell.EquipeLabel.text = "\(conference!.weast[indexPath.row].City) \(conference!.weast[indexPath.row].Name)"
@@ -74,8 +94,8 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         return ClassementCell
     }
     
-    
-    //MARK: API Classement
+
+//MARK: API Classement
     func downloadsJSON() {
         
         guard let url = URL(string: "https://api.sportsdata.io/v3/nba/scores/json/Standings/\(annee)?key=\(Constants.apiKey)")
@@ -112,10 +132,10 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }.resume()
   }
-    
+  
     
    
-    //MARK: Changer Saison
+//MARK: Changer Saison
     @IBAction func valider(_ sender: Any) {
         ChoixAnnee()
     }
@@ -131,7 +151,7 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 }
 
-    //MARK: PICKER VIEW SAISONS
+//MARK: PICKER VIEW SAISONS
  extension ClassementViewController: UIPickerViewDataSource, UIPickerViewDelegate {
          func numberOfComponents(in pickerView: UIPickerView) -> Int {
              1

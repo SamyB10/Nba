@@ -17,6 +17,7 @@
 		0D3C3B7C283696AD00395FD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3C3B7A283696AD00395FD7 /* LaunchScreen.storyboard */; };
 		0D3C3B8728377CFA00395FD7 /* CalendrierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B8628377CFA00395FD7 /* CalendrierViewController.swift */; };
 		0D3C3B8D283BB63800395FD7 /* CalendrierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B8C283BB63800395FD7 /* CalendrierTableViewCell.swift */; };
+		0D40B4882853D5E500338394 /* ApiClassement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B4872853D5E500338394 /* ApiClassement.swift */; };
 		0D66CC592848EADC00576136 /* Saisons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66CC582848EADC00576136 /* Saisons.swift */; };
 		0D66CC5B2848F1B000576136 /* ClassementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66CC5A2848F1B000576136 /* ClassementTableViewCell.swift */; };
 		0DACFBF7283C2AB000957F34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DACFBF6283C2AB000957F34 /* Constants.swift */; };
@@ -36,6 +37,7 @@
 		0D3C3B7D283696AD00395FD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3C3B8628377CFA00395FD7 /* CalendrierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrierViewController.swift; sourceTree = "<group>"; };
 		0D3C3B8C283BB63800395FD7 /* CalendrierTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrierTableViewCell.swift; sourceTree = "<group>"; };
+		0D40B4872853D5E500338394 /* ApiClassement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClassement.swift; sourceTree = "<group>"; };
 		0D66CC582848EADC00576136 /* Saisons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saisons.swift; sourceTree = "<group>"; };
 		0D66CC5A2848F1B000576136 /* ClassementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassementTableViewCell.swift; sourceTree = "<group>"; };
 		0DACFBF6283C2AB000957F34 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		0D40B4822853AF0100338394 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				0D40B4872853D5E500338394 /* ApiClassement.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				0D1FB3A8284CD12200FF4CF5 /* viewModelClassement.swift in Sources */,
 				0D66CC592848EADC00576136 /* Saisons.swift in Sources */,
 				0D3C3B8D283BB63800395FD7 /* CalendrierTableViewCell.swift in Sources */,
+				0D40B4882853D5E500338394 /* ApiClassement.swift in Sources */,
 				0D32EFC428476E390012B3FF /* DateHelpers.swift in Sources */,
 				0DACFBFA283C2BE400957F34 /* viewModelCalendrier.swift in Sources */,
 				0D32EFC92848DDBC0012B3FF /* ClassementViewController.swift in Sources */,
