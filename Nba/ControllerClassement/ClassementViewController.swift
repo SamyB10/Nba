@@ -128,7 +128,7 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         } catch {
-            fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
+           fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
         }
     }.resume()
   }

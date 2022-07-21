@@ -17,9 +17,13 @@
 		0D3C3B7C283696AD00395FD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3C3B7A283696AD00395FD7 /* LaunchScreen.storyboard */; };
 		0D3C3B8728377CFA00395FD7 /* CalendrierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B8628377CFA00395FD7 /* CalendrierViewController.swift */; };
 		0D3C3B8D283BB63800395FD7 /* CalendrierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C3B8C283BB63800395FD7 /* CalendrierTableViewCell.swift */; };
-		0D40B4882853D5E500338394 /* ApiClassement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B4872853D5E500338394 /* ApiClassement.swift */; };
+		0D40B48B2855FD9C00338394 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B48A2855FD9C00338394 /* StatsViewController.swift */; };
+		0D40B48E285721DC00338394 /* StatsJoueurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B48D285721DC00338394 /* StatsJoueurViewController.swift */; };
+		0D40B490285725E900338394 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B48F285725E900338394 /* StatsTableViewCell.swift */; };
+		0D40B4922857403000338394 /* viewModelStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40B4912857403000338394 /* viewModelStats.swift */; };
 		0D66CC592848EADC00576136 /* Saisons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66CC582848EADC00576136 /* Saisons.swift */; };
 		0D66CC5B2848F1B000576136 /* ClassementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D66CC5A2848F1B000576136 /* ClassementTableViewCell.swift */; };
+		0D6F8C1A28590DF200D83E72 /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F8C1928590DF200D83E72 /* color.swift */; };
 		0DACFBF7283C2AB000957F34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DACFBF6283C2AB000957F34 /* Constants.swift */; };
 		0DACFBFA283C2BE400957F34 /* viewModelCalendrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DACFBF9283C2BE400957F34 /* viewModelCalendrier.swift */; };
 /* End PBXBuildFile section */
@@ -37,9 +41,13 @@
 		0D3C3B7D283696AD00395FD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3C3B8628377CFA00395FD7 /* CalendrierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrierViewController.swift; sourceTree = "<group>"; };
 		0D3C3B8C283BB63800395FD7 /* CalendrierTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrierTableViewCell.swift; sourceTree = "<group>"; };
-		0D40B4872853D5E500338394 /* ApiClassement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClassement.swift; sourceTree = "<group>"; };
+		0D40B48A2855FD9C00338394 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		0D40B48D285721DC00338394 /* StatsJoueurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsJoueurViewController.swift; sourceTree = "<group>"; };
+		0D40B48F285725E900338394 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
+		0D40B4912857403000338394 /* viewModelStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelStats.swift; sourceTree = "<group>"; };
 		0D66CC582848EADC00576136 /* Saisons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saisons.swift; sourceTree = "<group>"; };
 		0D66CC5A2848F1B000576136 /* ClassementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassementTableViewCell.swift; sourceTree = "<group>"; };
+		0D6F8C1928590DF200D83E72 /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 		0DACFBF6283C2AB000957F34 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0DACFBF9283C2BE400957F34 /* viewModelCalendrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModelCalendrier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,8 +97,9 @@
 				0D3C3B842836972200395FD7 /* View */,
 				0D3C3B852836974200395FD7 /* ControllerCalendrier */,
 				0D32EFC72848DD360012B3FF /* ControllerClassement */,
+				0D40B48C2857216700338394 /* StatsJoueurController */,
+				0D40B4892855FD7900338394 /* ControllerStats */,
 				0DACFBF8283C2BBD00957F34 /* ViewModel */,
-				0D40B4822853AF0100338394 /* API */,
 				0DACFBF5283C2A8300957F34 /* Helpers */,
 			);
 			path = Nba;
@@ -112,6 +121,7 @@
 				0D3C3B7A283696AD00395FD7 /* LaunchScreen.storyboard */,
 				0D3C3B8C283BB63800395FD7 /* CalendrierTableViewCell.swift */,
 				0D66CC5A2848F1B000576136 /* ClassementTableViewCell.swift */,
+				0D40B48F285725E900338394 /* StatsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,12 +134,20 @@
 			path = ControllerCalendrier;
 			sourceTree = "<group>";
 		};
-		0D40B4822853AF0100338394 /* API */ = {
+		0D40B4892855FD7900338394 /* ControllerStats */ = {
 			isa = PBXGroup;
 			children = (
-				0D40B4872853D5E500338394 /* ApiClassement.swift */,
+				0D40B48A2855FD9C00338394 /* StatsViewController.swift */,
 			);
-			path = API;
+			path = ControllerStats;
+			sourceTree = "<group>";
+		};
+		0D40B48C2857216700338394 /* StatsJoueurController */ = {
+			isa = PBXGroup;
+			children = (
+				0D40B48D285721DC00338394 /* StatsJoueurViewController.swift */,
+			);
+			path = StatsJoueurController;
 			sourceTree = "<group>";
 		};
 		0DACFBF5283C2A8300957F34 /* Helpers */ = {
@@ -137,6 +155,7 @@
 			children = (
 				0DACFBF6283C2AB000957F34 /* Constants.swift */,
 				0D32EFC328476E390012B3FF /* DateHelpers.swift */,
+				0D6F8C1928590DF200D83E72 /* color.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -146,6 +165,7 @@
 			children = (
 				0DACFBF9283C2BE400957F34 /* viewModelCalendrier.swift */,
 				0D1FB3A7284CD12200FF4CF5 /* viewModelClassement.swift */,
+				0D40B4912857403000338394 /* viewModelStats.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -222,16 +242,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3C3B8728377CFA00395FD7 /* CalendrierViewController.swift in Sources */,
+				0D40B4922857403000338394 /* viewModelStats.swift in Sources */,
 				0D66CC5B2848F1B000576136 /* ClassementTableViewCell.swift in Sources */,
 				0D3C3B70283696AA00395FD7 /* AppDelegate.swift in Sources */,
 				0D3C3B72283696AA00395FD7 /* SceneDelegate.swift in Sources */,
+				0D6F8C1A28590DF200D83E72 /* color.swift in Sources */,
 				0D1FB3A8284CD12200FF4CF5 /* viewModelClassement.swift in Sources */,
+				0D40B490285725E900338394 /* StatsTableViewCell.swift in Sources */,
 				0D66CC592848EADC00576136 /* Saisons.swift in Sources */,
 				0D3C3B8D283BB63800395FD7 /* CalendrierTableViewCell.swift in Sources */,
-				0D40B4882853D5E500338394 /* ApiClassement.swift in Sources */,
 				0D32EFC428476E390012B3FF /* DateHelpers.swift in Sources */,
+				0D40B48E285721DC00338394 /* StatsJoueurViewController.swift in Sources */,
 				0DACFBFA283C2BE400957F34 /* viewModelCalendrier.swift in Sources */,
 				0D32EFC92848DDBC0012B3FF /* ClassementViewController.swift in Sources */,
+				0D40B48B2855FD9C00338394 /* StatsViewController.swift in Sources */,
 				0DACFBF7283C2AB000957F34 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
