@@ -7,8 +7,6 @@
 
 import Foundation
 
-
 struct Calendrier: Codable {
-    
     var result: [calendrier]
 }

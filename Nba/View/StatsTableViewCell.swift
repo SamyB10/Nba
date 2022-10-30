@@ -9,39 +9,26 @@ import Foundation
 import UIKit
 
 class StatsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var ViewStats: UIView!
-    @IBOutlet weak var NameLabel: UILabel!
-    @IBOutlet weak var PointLabel: UILabel!
-    @IBOutlet weak var PosteLabel: UILabel!
-    @IBOutlet weak var ORP: UILabel!
-    @IBOutlet weak var DRP: UILabel!
-    @IBOutlet weak var AP: UILabel!
-    @IBOutlet weak var BS: UILabel!
-
-    var Image = StatsViewController()
-     
-   
-    
-    
+    @IBOutlet weak var viewStats: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var pointLabel: UILabel!
+    @IBOutlet weak var posteLabel: UILabel!
+    @IBOutlet weak var offensiveReboundPercentage: UILabel!
+    @IBOutlet weak var defensiveReboundPercentage: UILabel!
+    @IBOutlet weak var assistPercentage: UILabel!
+    @IBOutlet weak var blockPercentage: UILabel!
+    var image = StatsViewController()
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        NameLabel.isUserInteractionEnabled = true
-        
+        nameLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(clickLabel))
         tap.numberOfTapsRequired = 1
-        NameLabel.addGestureRecognizer(tap)
-
+        nameLabel.addGestureRecognizer(tap)
     }
-    
-    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
-        
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
     }
-    
     @objc func clickLabel() {
-        Image.rechercheImage(NamePlayersFields: "") 
-       // print("\(NameLabel)")
-        
+        image.imagePlayers()
+        // print("\(NameLabel)")
     }
 }

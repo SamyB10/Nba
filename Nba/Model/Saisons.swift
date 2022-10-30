@@ -6,8 +6,7 @@
 //
 
 import Foundation
-
-
+// swiftlint:disable:all trailing_comma
 let saisons = ["2022",
                "2021",
                "2020",

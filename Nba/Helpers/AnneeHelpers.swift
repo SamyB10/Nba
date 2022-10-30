@@ -9,20 +9,12 @@ import Foundation
 
 enum Years {
 
-    case DeuxMilleVingtDeux
-    case DeuxMilleVingtEtUn
+    case deuxMilleVingtDeux
+    case deuxMilleVingtEtUn
 }
-
-
-
-
 
 // class d'assistance de date
 class AnneHelpers {
-    
     // Tableau des mois utilisé dans getDateString
-    
     static var Years = ["2022", "2021"]
-    
-
 }

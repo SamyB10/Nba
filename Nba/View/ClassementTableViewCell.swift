@@ -8,26 +8,20 @@
 import UIKit
 
 class ClassementTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var ViewClassement: UIView!
-    @IBOutlet weak var ClassementLabel: UILabel!
-    @IBOutlet weak var LogoImageView: UIImageView!
-    @IBOutlet weak var EquipeLabel: UILabel!
-    @IBOutlet weak var StatsLabel: UILabel!
-    
-    
+    @IBOutlet weak var viewClassement: UIView!
+    @IBOutlet weak var classementLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var equipeLabel: UILabel!
+    @IBOutlet weak var statsLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadows()
-        
     }
-
     func addShadows() {
-        ViewClassement.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
-        ViewClassement.layer.shadowOpacity = 2.0
+        viewClassement.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        viewClassement.layer.shadowOpacity = 2.0
     }
-    
-    func NumeroClassement(Numero: Int) {
-        ClassementLabel.text = "\(Numero)"
+    func numeroClassement(numero: Int) {
+        classementLabel.text = "\(numero)"
     }
 }

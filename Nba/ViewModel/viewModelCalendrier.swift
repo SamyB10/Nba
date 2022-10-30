@@ -6,10 +6,8 @@
 //
 
 import Foundation
-
-
-
- struct CalendrierMatch:Decodable {
+// swiftlint:disable identifier_name
+ struct ScheduleGame: Decodable {
     let AwayTeam: String
     let HomeTeam: String
     let Status: String
@@ -18,16 +16,9 @@ import Foundation
     let DateTime: String
 }
 
-
 class Calendrier: Decodable, ObservableObject {
-    var games:[CalendrierMatch]
-    
+    var games: [ScheduleGame]
     init() {
-        self.games = [CalendrierMatch]()
+        self.games = [ScheduleGame]()
     }
 }
-
-
-
-
-

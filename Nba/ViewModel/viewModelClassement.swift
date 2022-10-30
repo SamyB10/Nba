@@ -8,24 +8,17 @@
 import Foundation
 
 struct ClassementConference: Decodable {
-    
 
-    
-    var teams:[Classement]
-    var east:[Classement]
-    var weast:[Classement]
-    
+    var teams: [Standing]
+    var east: [Standing]
+    var weast: [Standing]
     init() {
-        self.teams = [Classement]()
-        self.east = [Classement]()
-        self.weast = [Classement]()
+        self.teams = [Standing]()
+        self.east = [Standing]()
+        self.weast = [Standing]()
     }
-    
-    
-    mutating func Conference() {
-        
+    mutating func conference() {
         // Separer team east et west
-        
         for conference in (0..<teams.count) {
             if teams[conference].Conference == "Eastern" {
                 self.east.append(teams[conference])
@@ -33,30 +26,24 @@ struct ClassementConference: Decodable {
                 self.weast.append(teams[conference])
             }
         }
-        
         self.east.sort { conference1, conference2 in
             return conference1.Percentage > conference2.Percentage
         }
-        
         self.weast.sort { conference1, conference2 in
             return conference1.Percentage > conference2.Percentage
         }
     }
 }
-    
-
-struct Classement: Decodable, Identifiable {
-    var id:UUID?
-    var Key:String
-    var City:String
-    var Name:String
-    var Conference:String
-    var TeamID:Int
-    var Wins:Int
-    var Losses:Int
-    var Percentage:Double
-    var ConferenceRank:Int
-    
+struct Standing: Decodable, Identifiable {
+    // swiftlint:disable identifier_name
+    var id: UUID?
+    var Key: String
+    var City: String
+    var Name: String
+    var Conference: String
+    var TeamID: Int
+    var Wins: Int
+    var Losses: Int
+    var Percentage: Double
+    var ConferenceRank: Int
 }
-
-
