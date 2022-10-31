@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ClassementConference: Decodable {
-
+struct StandingsConference: Decodable {
+    
     var teams: [Standing]
     var east: [Standing]
     var weast: [Standing]

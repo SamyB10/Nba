@@ -24,5 +24,5 @@ struct InfoPlayer: Decodable {
     var PlayerID: Int
     var FantasyDraftName: String
     var Team: String
-
+    
 }

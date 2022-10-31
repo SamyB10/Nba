@@ -7,7 +7,7 @@
 
 import Foundation
 // swiftlint:disable identifier_name
- struct ScheduleGame: Decodable {
+struct ScheduleGame: Decodable {
     let AwayTeam: String
     let HomeTeam: String
     let Status: String

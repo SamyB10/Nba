@@ -32,12 +32,12 @@
         <!--Classement-->
         <scene sceneID="VoN-jJ-evI">
             <objects>
-                <viewController id="ZC6-b1-7vJ" customClass="ClassementViewController" customModule="Nba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZC6-b1-7vJ" customClass="StandingsViewController" customModule="Nba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gAY-3w-YxM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-wg-61G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1L-wg-61G">
                                 <rect key="frame" x="10" y="69" width="230" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="CXg-y9-kym"/>
@@ -72,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="296" width="393" height="463"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClassementCell" rowHeight="70" id="hDU-st-cye" userLabel="ClassementCell" customClass="ClassementTableViewCell" customModule="Nba" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StandingsCell" rowHeight="70" id="hDU-st-cye" userLabel="ClassementCell" customClass="StandingsTableViewCell" customModule="Nba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hDU-st-cye" id="Vsq-83-36g">
@@ -142,11 +142,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="classementLabel" destination="HE5-g8-A6s" id="dzs-hd-003"/>
-                                            <outlet property="equipeLabel" destination="g7L-E9-TTG" id="mqi-Ri-jbC"/>
-                                            <outlet property="logoImageView" destination="GKd-Tu-2kk" id="4t8-x7-DAZ"/>
+                                            <outlet property="logoPictureView" destination="GKd-Tu-2kk" id="6qq-D7-cA7"/>
+                                            <outlet property="standingsLabel" destination="HE5-g8-A6s" id="x7G-JH-o6A"/>
                                             <outlet property="statsLabel" destination="HnQ-r6-CSJ" id="LdV-k6-Uo7"/>
-                                            <outlet property="viewClassement" destination="fvO-Zx-lwO" id="hRP-TY-Iva"/>
+                                            <outlet property="teamLabel" destination="g7L-E9-TTG" id="Vf2-fq-PF4"/>
+                                            <outlet property="viewStandings" destination="fvO-Zx-lwO" id="1x9-VP-h1c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -165,13 +165,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phase Finale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-mg-qc1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play-off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-mg-qc1">
                                         <rect key="frame" x="29" y="0.0" width="90" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="L5T-BG-RqG"/>
                                             <constraint firstAttribute="width" constant="90" id="qA1-EE-FFh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -186,13 +186,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barrage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh1-21-n95">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barrage play-off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh1-21-n95">
                                         <rect key="frame" x="157" y="0.0" width="100" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="1p5-ww-QBz"/>
                                             <constraint firstAttribute="width" constant="100" id="om9-YM-x3B"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -226,7 +226,7 @@
                                             <color key="baseForegroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="valider:" destination="ZC6-b1-7vJ" eventType="touchUpInside" id="aXB-ei-nLl"/>
+                                            <action selector="validate:" destination="ZC6-b1-7vJ" eventType="touchUpInside" id="q1n-Hg-xoK"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W - L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-JR-dap">
@@ -268,12 +268,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Classement" image="list.dash" catalog="system" id="2dI-Dn-i3M"/>
                     <connections>
-                        <outlet property="legendeBlue" destination="3M2-JD-INA" id="kf2-Im-ros"/>
-                        <outlet property="legendeRed" destination="bx7-H9-9vt" id="bwu-Xd-vDx"/>
-                        <outlet property="saison" destination="6P2-y8-mcc" id="5as-LL-5ed"/>
+                        <outlet property="legendBlue" destination="3M2-JD-INA" id="NpT-ZY-JLe"/>
+                        <outlet property="legendRed" destination="bx7-H9-9vt" id="EZW-by-xWI"/>
+                        <outlet property="season" destination="6P2-y8-mcc" id="aPY-9p-xHv"/>
                         <outlet property="segmentedControl" destination="QFT-2j-O3f" id="Zrn-g2-fDH"/>
                         <outlet property="tableView" destination="PlC-Lt-1pa" id="pd6-lv-adO"/>
-                        <outlet property="validerAnne" destination="Tsb-NX-5Rm" id="ucJ-UF-Ufi"/>
+                        <outlet property="validateYear" destination="Tsb-NX-5Rm" id="jjw-m1-RIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJv-dm-9m1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

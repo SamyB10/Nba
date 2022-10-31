@@ -13,18 +13,18 @@ import UIKit
 
 
 
-class ClassementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StandingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @Published var conference: ClassementConference?
+    @Published var conference: StandingsConference?
     var standing = [Standing]()
-    var year = Constants.saison[0]
+    var year = Constants.season[0]
     var colorBlue = UIColor(red: 39/255, green: 65/255, blue: 133/255, alpha: 0.7)
     var colorRed = UIColor(red: 184/255, green: 43/255, blue: 53/255, alpha: 0.7)
     
-    @IBOutlet weak var legendeRed: UILabel!
-    @IBOutlet weak var legendeBlue: UILabel!
-    @IBOutlet weak var validerAnne: UIButton!
-    @IBOutlet weak var saison: UIPickerView!
+    @IBOutlet weak var legendRed: UILabel!
+    @IBOutlet weak var legendBlue: UILabel!
+    @IBOutlet weak var validateYear: UIButton!
+    @IBOutlet weak var season: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -33,8 +33,8 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        legendeBlue.backgroundColor = colorBlue
-        legendeRed.backgroundColor = colorRed
+        legendBlue.backgroundColor = colorBlue
+        legendRed.backgroundColor = colorRed
         self.downloadsJSON()
     }
     @IBAction func selectConf(_ sender: UISegmentedControl) -> () {
@@ -55,39 +55,39 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
         return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let classementCellIdentifiant = "ClassementCell"
-        let classementCell = tableView.dequeueReusableCell(withIdentifier: classementCellIdentifiant, for: indexPath) as! ClassementTableViewCell
+        let standingsCellIdentifiant = "StandingsCell"
+        let standingsCell = tableView.dequeueReusableCell(withIdentifier: standingsCellIdentifiant, for: indexPath) as! StandingsTableViewCell
         // Print in the cell
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            classementCell.numeroClassement(numero: indexPath.row + 1)
+            standingsCell.numeroClassement(numero: indexPath.row + 1)
             if indexPath.row <= 5 {
-                classementCell.classementLabel.backgroundColor = colorBlue
+                standingsCell.standingsLabel.backgroundColor = colorBlue
             } else if indexPath.row <= 9 {
-                classementCell.classementLabel.backgroundColor = colorRed
+                standingsCell.standingsLabel.backgroundColor = colorRed
             } else {
-                classementCell.classementLabel.backgroundColor = .white
+                standingsCell.standingsLabel.backgroundColor = .white
             }
-            classementCell.logoImageView.image = UIImage(named: (conference?.east[indexPath.row].Key)!)
-            classementCell.equipeLabel.text = "\(conference!.east[indexPath.row].City) \(conference!.east[indexPath.row].Name)"
-            classementCell.statsLabel.text = "\(conference!.east[indexPath.row].Wins) - \(conference!.east[indexPath.row].Losses)"
+            standingsCell.logoPictureView.image = UIImage(named: (conference?.east[indexPath.row].Key)!)
+            standingsCell.teamLabel.text = "\(conference!.east[indexPath.row].City) \(conference!.east[indexPath.row].Name)"
+            standingsCell.statsLabel.text = "\(conference!.east[indexPath.row].Wins) - \(conference!.east[indexPath.row].Losses)"
         case 1:
-            classementCell.numeroClassement(numero: indexPath.row + 1)
+            standingsCell.numeroClassement(numero: indexPath.row + 1)
             if indexPath.row <= 5 {
-                classementCell.classementLabel.backgroundColor = colorBlue
+                standingsCell.standingsLabel.backgroundColor = colorBlue
             } else if indexPath.row <= 9 {
-                classementCell.classementLabel.backgroundColor = colorRed
+                standingsCell.standingsLabel.backgroundColor = colorRed
             } else {
-                classementCell.classementLabel.backgroundColor = .white
+                standingsCell.standingsLabel.backgroundColor = .white
             }
-            classementCell.numeroClassement(numero: indexPath.row + 1)
-            classementCell.logoImageView.image = UIImage(named: (conference?.weast[indexPath.row].Key)!)
-            classementCell.equipeLabel.text = "\(conference!.weast[indexPath.row].City) \(conference!.weast[indexPath.row].Name)"
-            classementCell.statsLabel.text = "\(conference!.weast[indexPath.row].Wins) - \(conference!.weast[indexPath.row].Losses)"
+            standingsCell.numeroClassement(numero: indexPath.row + 1)
+            standingsCell.logoPictureView.image = UIImage(named: (conference?.weast[indexPath.row].Key)!)
+            standingsCell.teamLabel.text = "\(conference!.weast[indexPath.row].City) \(conference!.weast[indexPath.row].Name)"
+            standingsCell.statsLabel.text = "\(conference!.weast[indexPath.row].Wins) - \(conference!.weast[indexPath.row].Losses)"
         default:
             break
         }
-        return classementCell
+        return standingsCell
     }
     
     
@@ -109,7 +109,7 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
                     for s in (1..<incomingData.count) {
                         incomingData[s].id = UUID()
                     }
-                    var newConference = ClassementConference()
+                    var newConference = StandingsConference()
                     DispatchQueue.main.async {
                         newConference.teams = incomingData
                         newConference.conference()
@@ -122,11 +122,11 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }.resume()
     }
-    // MARK: - Changer Saison
-    @IBAction func valider(_ sender: Any) {
-        choixAnnee()
+    // MARK: - Switch Seasons
+    @IBAction func validate(_ sender: Any) {
+        choiceYear()
     }
-    func choixAnnee() {
+    func choiceYear() {
         let years = year
         if years == "2021" {
             downloadsJSON()
@@ -137,17 +137,17 @@ class ClassementViewController: UIViewController, UITableViewDelegate, UITableVi
 }
 
 // MARK: - PICKER VIEW SAISONS
-extension ClassementViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension StandingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Constants.saison.count
+        return Constants.season.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Constants.saison[row]
+        return Constants.season[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        year = Constants.saison[row]
+        year = Constants.season[row]
     }
 }
