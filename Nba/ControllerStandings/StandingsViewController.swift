@@ -118,7 +118,7 @@ class StandingsViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
             } catch {
-                fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
+                fatalError("\(error)")
             }
         }.resume()
     }

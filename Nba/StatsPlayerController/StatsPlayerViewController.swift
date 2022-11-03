@@ -8,20 +8,20 @@
 import UIKit
 // swiftlint:disable:all line_length
 
-class StatsJoueurViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StatsPlayerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @Published var conversion: StatsPlayer?
     var stats =  [StatsPlayer]()
     var statsTableView = StatsTableViewCell()
-    @IBOutlet weak var clubView: UIImageView!
-    @IBOutlet weak var equipeFields: UITextField!
+    @IBOutlet weak var teamView: UIImageView!
+    @IBOutlet weak var teamFields: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var validerEquipe: UIButton!
+    @IBOutlet weak var validateTeam: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        downloadStatsJSON(equipeFields: "GS")
+        downloadStatsJSON(teamFields: "GS")
         self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,17 +41,17 @@ class StatsJoueurViewController: UIViewController, UITableViewDelegate, UITableV
         statsCell.posteLabel.text = "\(stats[indexPath.row].Position)"
         return statsCell
     }
-    @IBAction func validerEquipe(_ sender: Any) {
-        downloadStatsJSON(equipeFields: equipeFields.text!)
-        clubView.image = UIImage(named: "\(equipeFields.text!)")
+    @IBAction func validateTeam(_ sender: Any) {
+        downloadStatsJSON(teamFields: teamFields.text!)
+        teamView.image = UIImage(named: "\(teamFields.text!)")
     }
     // MARK: - API STATS
-    func downloadStatsJSON (equipeFields: String) {
-        guard let url = URL(string: "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/\(equipeFields)?key=\(Constants.apiKey)")
+    func downloadStatsJSON (teamFields: String) {
+        guard let url = URL(string: "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/\(teamFields)?key=\(Constants.apiKey)")
         else {
             fatalError("BAD URL")
         }
-        // Appel de L'API
+        // call API
         URLSession.shared.dataTask(with: url) { data, response, error in
             do {
                 if error == nil && data != nil {
@@ -62,7 +62,7 @@ class StatsJoueurViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                 }
             } catch {
-                fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
+                fatalError("\(error)")
             }
         }.resume()
     }

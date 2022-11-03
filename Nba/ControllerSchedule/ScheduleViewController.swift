@@ -79,7 +79,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
             } catch {
-                fatalError("Impossible d'analyser JSON dans Calendrier! \n\(error)")
+                fatalError("\(error)")
             }
         }.resume()
     }
